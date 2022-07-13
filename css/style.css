@@ -1,6 +1,11 @@
 h1 {
-  font-size: 3rem;
-  font-style: italic;
+  font-size: 5rem;
+  font-style: italic, bold;
+}
+
+h3 {
+  font-size: 2rem;
+  font-style: italic, bold;
 }
 
 ul {
@@ -18,4 +23,18 @@ img {
   float:left;
   padding:20px;
   width: 200px;
+}
+
+h1{
+ 
+  align: center;
+  
+}
+
+h3 {
+
+  margin: 30px;
+}
+p {
+  margin: 20px;
 }
