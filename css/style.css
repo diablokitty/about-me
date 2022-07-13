@@ -1,6 +1,7 @@
 h1 {
   font-size: 5rem;
   font-style: italic, bold;
+  width: max-content;
 }
 
 h3 {
