@@ -1,14 +1,27 @@
 'use strict';
 
 //remember these elements: five questions, username displayed at beginning and end
+//for class 3 lab add:
+//a 6th question to the guessing game that takes in a numeric input
+//by prompting the user to guess a number.
+//Indicates through an alert if the guess is “too high” or “too low”.
+//It should give the user exactly four opportunities to get the correct answer.
+//After all attempts have been exhausted, tell the user the correct answer. Consider using a loop of some sort.
+//a 7th question Add a 7th question that has multiple possible correct answers that are stored in an array.
+//Give the user 6 attempts to guess the correct answer.
+//The guesses will end once the user guesses a correct answer or they run out of attempts.
+//Display all the possible correct answers to the user.
+//Consider using a loop of some sort for this question.
+//adjust the final score to include the two new questions.
+
 
 console.log('hello');
 //Five questions with yes or no answers
-alert("Welcome to all about me!");
-let username = prompt("What is your name?");
-console.log("Question: What is your name? Response: " + username);
+alert('Welcome to all about me!');
+let username = prompt('What is your name?');
+console.log(`Question: What is your name? Response: ${username}`);
 let score = 0;
-let ques1 = prompt("Hi " + username + ", I'm going to ask you a series of yes or no questions. For each correct answer, you get one point. Are you ready?").toLowerCase();
+let ques1 = prompt(`Hi $(username), I'm going to ask you a series of yes or no questions. For each correct answer, you get one point. Are you ready?`).toLowerCase();
 //console.log(`Question: Are you ready? Response: ${ques1}`);
 
 if(ques1 === 'yes' || ques1 === 'y' ) {
@@ -27,7 +40,7 @@ if(ques2 === 'yes' || ques2 === 'y' ) {
   //console.log(`Oh ${username}, your confidence is inspiring! Your score is ${score}.`);
 }
 else {
-alert(`Hmm. Well I don't know about that. Let's try another one.`);
+  alert(`Hmm. Well I don't know about that. Let's try another one.`);
 }
 let ques3 = prompt(`So ${username}, do you think I'll ever meet a plane I don't want to get on?`).toLowerCase();
 //console.log(`Question: Do you think I'll ever meet a plane I don't want to get on? Response: ${ques3});
@@ -64,6 +77,50 @@ if(ques5 === 'yes' || ques5 === 'y' ) {
 else {
   alert(`Not a fan of Go, Dog, Go, ${username}? That's ok.`);
 }
+
+let goodguess = Math.floor(Math.random() * 101);
+console.log(goodguess);
+//math code string found at https://www.w3schools.com/js/js_random.asp
+
+let ques6 = prompt(`Let's try something else, ${username}. I'm thinking of a number between 1 and 100. Try to guess the number.`);
+//ques6 = Number(ques6); if we wanted to use strictly not equal this code would go here and at lines 93 and 96
+let guesses = 4;
+
+while(ques6 != goodguess && guesses >= 1) {
+  //console.log(`for loop`);
+  if(ques6 > goodguess){
+    ques6 = prompt(`Too high, ${username}. You have ${guesses} tries left. Next guess?`);
+    guesses--;
+  }
+  else if (ques6 < goodguess){
+    ques6 = prompt(`Too low, ${username}. You have ${guesses} tries left. Try again?`);
+    guesses--;
+  }
+}
+//console.log('You\'re out of the loop.');
+if(ques6==goodguess){
+  score++;
+  alert(`You got it, ${username}! Your score is ${score}.`);
+}
+if(guesses===0) {
+  alert(`Oh no, ${username}! You ran out of guesses! The answer was ${goodguess}.`);
+}
+
+
+alert(`Ok, ${username}, last question! ${username}, I used to have cats named after Disney character.`);
+alert('Here are your choices:');
+let guesschoice = ['mickey','minnie','goofy','donald','daisy','pluto','baloo','sneezy','pongo','lady'];
+//The correct choices are goofy and lady.
+
+for (let i = 0; i<guesschoice.length; i++){
+  alert(guesschoice[i]);
+}
+
+let guesschar = prompt(`Can you guess which characters? You have six chances Please guess one at a time.`);
+
+//This is where the loop to compare the guesses to the array goes.
+//if (guesschoice[j] = guesschar){
+// score++;
 
 alert(`${username}, you've been a great sport! Your ending score is ${score}, but don't worry, there's no prize except the satisfaction of a game well played.`);
 
