@@ -51,7 +51,7 @@ if(ques3 === 'yes' || ques3 === 'y' ) {
   //console.log(`Well, you're right, ${username}. There are a few places I wouldn't want to end up! Your score is ${score}.`);
 }
 else {
-  alert(`Oh I don't know, there are a few places I wouldn't want to end up!`);
+  alert('Oh I don\'t know, there are a few places I wouldn\'t want to end up!');
 }
 
 let ques4 = prompt(`Next question ${username}, is purple my favorite color?`).toLowerCase();
@@ -84,9 +84,10 @@ console.log(goodguess);
 
 let ques6 = prompt(`Let's try something else, ${username}. I'm thinking of a number between 1 and 100. Try to guess the number.`);
 //ques6 = Number(ques6); if we wanted to use strictly not equal this code would go here and at lines 93 and 96
+parseInt(ques6);
 let guesses = 4;
 
-while(ques6 != goodguess && guesses >= 1) {
+while(ques6 !== goodguess && guesses >= 1) {
   //console.log(`for loop`);
   if(ques6 > goodguess){
     ques6 = prompt(`Too high, ${username}. You have ${guesses} tries left. Next guess?`);
@@ -98,7 +99,7 @@ while(ques6 != goodguess && guesses >= 1) {
   }
 }
 //console.log('You\'re out of the loop.');
-if(ques6==goodguess){
+if(ques6===goodguess){
   score++;
   alert(`You got it, ${username}! Your score is ${score}.`);
 }
